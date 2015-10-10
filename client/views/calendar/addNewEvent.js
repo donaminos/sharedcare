@@ -9,6 +9,7 @@ Template.addNewEvent.events({
     e.preventDefault();
     var date = $("#date").val()
     var note = $("#note").val()
-    CalendarEvents.insert({date: new Date(date), note: note});
+    CalendarEvents.insert({date: new Date(date), note: note, group: "abcd"});
+    IonModal.close('addNewEvent');
   }
 });
