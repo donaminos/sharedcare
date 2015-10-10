@@ -19,9 +19,7 @@
     {{# if datelabel}}
     <div class="item item-divider">{{datelabel}}</div>
     {{else}}
-    {{#ionItem}}
         {{> singleExpenseItem}}
-    {{/ionItem}}
     {{/if}}
     {{/each}}
   {{/ionList}}
@@ -37,6 +35,10 @@
 </template>
 
 <template name="singleExpenseItem">
+    {{#ionItem}}
+      <div class="expenseItem">
       {{note}}
       <span class="item-note">$ {{amount}}</span>
+      </div>
+    {{/ionItem}}
 </template>

@@ -22,3 +22,5 @@ Template.expenses.helpers({
         return list.length > 0 ? list : false;
     }
 });
+Template.singleExpenseItem.helpers({
+});
