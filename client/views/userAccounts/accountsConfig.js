@@ -84,24 +84,43 @@ function submitFunc(error, state){
       // Successfully logged in
       // ...
       var user = Meteor.user();
-      var children = Children.find({groupId: user.profile.groupId}).count();
-      console.log(children);
-      if (children > 0)
-        Router.go('/');
-      else
-        Router.go('/children');
+      Meteor.call('checkInvitation', user.emails[0].address, function (err, exists) {
+        if (exists.length > 0) {
+          Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': exists[0]._id}});
+          Router.go('/acceptInvitation');
+        } else {
+          Meteor.call('checkChildrenExists', user.profile.groupId[0], function (err, children) {
+            console.log(children, {groupId: user.profile.groupId[0]});
+            if (children.length > 0)
+              Router.go('/');
+            else
+              Router.go('/children');
+          })
+        }
+      });
     }
     if (state === "signUp") {
       console.log(Meteor.userId());
       var user = Meteor.user();
-      var members = [{email: user.emails[0].address, invited: false}];
-      var groupId = Group.insert({groupOwnerId: Meteor.userId(), members: members});
-      Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': groupId}});
-      var children = Children.find({groupId: groupId}).count();
-      if (children > 0)
-        Router.go('/home');
-      else
-        Router.go('/children');
+      console.log(user);
+      Meteor.call('checkInvitation', user.emails[0].address, function (err, exists) {
+        console.log('exists', {'members.email': user.emails[0].address, 'members.invitationStatus': 'invited'});
+        console.log(err, exists);
+        if (exists.length > 0) {
+          Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': exists[0]._id}});
+          Router.go('/acceptInvitation');
+        } else {
+          var members = [{email: user.emails[0].address, invitationStatus: 'created'}];
+          var groupId = Group.insert({groupOwnerId: Meteor.userId(), members: members});
+          Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': groupId}});
+          var children = Children.find({groupId: groupId}).count();
+          if (children > 0)
+            Router.go('/');
+          else
+            Router.go('/children');
+
+        }
+      });
     }
   }
 };

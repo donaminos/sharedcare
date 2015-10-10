@@ -19,3 +19,7 @@ Meteor.publish('expenses', function(id) {
 Meteor.publish('groupMembers', function(id) {
   return Group.find({groupId: id});
 });
+
+Meteor.publish('acceptInvitation', function(id) {
+  return Children.find({groupId: id});
+});

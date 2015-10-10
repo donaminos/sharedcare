@@ -1,0 +1,29 @@
+<template name="acceptInvitation">
+	{{#contentFor "headerTitle"}}
+  	<h1 class="title">Accept Your Shared Care Invitation</h1>
+	{{/contentFor}}
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear settings"><i class="fa fa-gear"></i></button>
+  {{/contentFor}}
+
+	{{#ionView}}
+    	{{#ionContent class="homeScreen"}}
+    	<div class="">
+        <img src="/images/image_home.png">
+      </div>
+      <div>
+        <h1>Welcome to Shared Care.</h1>
+        <p>You are invited to the shared care group for {{children}}</p>
+      </div>
+      <div class="bar bar-footer">
+        <div class="button-bar">
+          <button class="button button-large button-positive accept">Accept</button>
+          <button class="button button-large button-assertive decline">Decline</button>
+        </div>
+      </div>
+    	{{/ionContent}}
+
+
+  {{/ionView}}
+
+</template>
