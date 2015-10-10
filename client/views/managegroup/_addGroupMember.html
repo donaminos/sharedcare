@@ -1,0 +1,29 @@
+<template name="_addGroupMember">
+  {{#ionModal title="Invite Group Member"}}
+        {{#ionList class="addGroupMemberForm"}}
+          <label class="item item-input">
+            <span class="input-label">Name</span>
+            <input type="text" id="name" value="">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="email" id="email">
+          </label>
+          <label class="item item-input item-select">
+            <span class="input-label">Relationship</span>
+            <select id="relationship">
+               <option value="dad">DAD</option>
+               <option value="mum">MUM</option>
+               <option value="grandma">GRANDMA</option>
+               <option value="grandpa">GRANDPA</option>
+               <option value="stepmum">STEP MUM</option>
+               <option value="stepfather">STEP FATHER</option>
+               <option value="babysitter">BABYSITTER</option>
+               <option value="friend">FRIEND</option>
+            </select>
+          </label>        {{/ionList}}
+          <div class="block-button">
+            <button class="button button-assertive button-block save">Invite</button>
+          </div>
+  {{/ionModal}}
+</template>
