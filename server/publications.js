@@ -11,3 +11,6 @@ Meteor.publish('kid', function(_id) {
 	console.log('kid', _id);
   return Children.find({_id: _id});
 });
+Meteor.publish('groupCalendar', function(id) {
+  return CalendarEvents.find({group: id});
+});

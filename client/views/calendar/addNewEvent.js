@@ -8,8 +8,11 @@ Template.addNewEvent.events({
   'click .save': function(e) {
     e.preventDefault();
     var date = $("#date").val()
+    var time = $("#time").val()
     var note = $("#note").val()
-    CalendarEvents.insert({date: new Date(date), note: note, group: "abcd"});
+    console.log(date, time);
+    CalendarEvents.insert({date: new Date(date), time: time, eventName: note, group: "abcd"});
+    userCalendar.drawMonth();
     IonModal.close('addNewEvent');
   }
 });
