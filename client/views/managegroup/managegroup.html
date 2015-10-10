@@ -10,10 +10,22 @@
 	{{#ionView}}
     	{{#ionContent class="groupScreen"}}
     	<div class="">
-        Shared Care image
+        <button class="button button-clear" data-ion-modal="_addGroupMember">{{> ionIcon icon="ios-plus-empty"}} Add New</button>
       </div>
+      <br/>
       <div class="">
-      </div>
+            {{#ionList}}
+              {{#each data}}
+                {{#each members}}
+                  {{#ionItem route="editKid" buttonRight=true avatar=true class="item-icon-right"}}
+                    <img src="{{avatarUrl}}">
+                    <h2>{{name}} ({{uppercase relationship}})</h2>
+                    <p>{{checkInvitationStatus invitationStatus}}</p>
+                  {{/ionItem}}
+                {{/each}}
+              {{/each}}
+            {{/ionList}}
+        </div>
     	{{/ionContent}}
 
 

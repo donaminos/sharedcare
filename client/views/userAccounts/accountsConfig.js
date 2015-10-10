@@ -83,17 +83,25 @@ function submitFunc(error, state){
     if (state === "signIn") {
       // Successfully logged in
       // ...
+      var user = Meteor.user();
+      var children = Children.find({groupId: user.profile.groupId}).count();
+      console.log(children);
+      if (children > 0)
+        Router.go('/');
+      else
+        Router.go('/children');
+    }
+    if (state === "signUp") {
       console.log(Meteor.userId());
       var user = Meteor.user();
       var members = [{email: user.emails[0].address, invited: false}];
       var groupId = Group.insert({groupOwnerId: Meteor.userId(), members: members});
-      Meteor.users.update({_id: Meteor.userId()}, {$push:{'groupId': groupId}});
-      Router.go('/children');
-    }
-    if (state === "signUp") {
-      // Successfully registered
-      // ...
-      Router.go('/signup')
+      Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': groupId}});
+      var children = Children.find({groupId: groupId}).count();
+      if (children > 0)
+        Router.go('/home');
+      else
+        Router.go('/children');
     }
   }
 };
