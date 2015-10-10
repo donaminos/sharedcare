@@ -8,8 +8,12 @@
           <div class="item">{{commentText}}</div>
         {{/each}}
       {{/ionList}}
-<div class="bar bar-footer bar-balanced">
-  <div class="title">Footer</div>
+<div class="bar bar-footer">
+        <div class="item-input-inset" style="width: 100%">
+          <label class="item-input-wrapper">
+      <input type="text" rows="4" placeholder="Comment" name="commentText" id="commentText">
+    </label>
+<button class="button button-clear button-small">Post</button>    </div>
 </div>
   {{/ionModal}}
 </template>
