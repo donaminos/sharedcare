@@ -14,6 +14,6 @@ Template._addKid.events({
     };
     console.log('kid', newKid);
     Children.insert(newKid);
-    Router.go('children', {});
+    IonModal.close('_addKid')
   }
 });
