@@ -22,6 +22,7 @@ meteoric:ionic-sass
 meteoric:ionicons-sass
 meteoric:ionic
 fortawesome:fontawesome
+momentjs:moment
 meteoric:autoform-ionic
 useraccounts:ionic
 accounts-password
