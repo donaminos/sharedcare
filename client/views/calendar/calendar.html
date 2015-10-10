@@ -1,7 +1,11 @@
 <template name="calendar">
 	{{#contentFor "headerTitle"}}
-  	<h1 class="title">CALENDAR</h1>
+  	<h1 class="title"></h1>
 	{{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    {{> homeButton}}
+  {{/contentFor}}
 
 	{{#ionView}}
     	{{#ionContent class="calendarScreen"}}
