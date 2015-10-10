@@ -1,0 +1,32 @@
+<template name="newsfeed">
+	{{#contentFor "headerTitle"}}
+  	<h1 class="title">NEWS FEED</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+    	{{#ionContent class="newsScreen"}}
+    	<div class="">
+        Shared Care image
+      </div>
+      <div class="">
+        {{#ionList class="news"}}
+          {{#each newslist}}
+          {{#ionItem}}
+              {{> singleNewsItem}}
+          {{/ionItem}}
+          {{/each}}
+        {{/ionList}}
+      </div>
+    	{{/ionContent}}
+
+
+  {{/ionView}}
+
+</template>
+
+<template name="singleNewsItem">
+      <div class="item-icon-left" href="#">
+      {{> ionIcon icon="minus-circled"}}
+      {{category}}
+      </div>
+</template>

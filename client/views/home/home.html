@@ -1,0 +1,33 @@
+<template name="home">
+	{{#contentFor "headerTitle"}}
+  	<h1 class="title">HOME</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+    	{{#ionContent class="homeScreen"}}
+    	<div class="">
+        Shared Care image
+      </div>
+      <div class="">
+        {{#ionList class="menu"}}
+          {{#each menulist}}
+          {{#ionItem}}
+              {{> singleMenuItem}}
+          {{/ionItem}}
+          {{/each}}
+        {{/ionList}}
+      </div>
+    	{{/ionContent}}
+
+
+  {{/ionView}}
+
+</template>
+
+<template name="singleMenuItem">
+      <div class="item-icon-left" href="#">
+      {{> ionIcon icon="minus-circled"}}
+      {{category}}
+      </div>
+      <span class="amount">$ {{amount}}</span>
+</template>
