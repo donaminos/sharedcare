@@ -1,9 +1,9 @@
 Template.calendar.onRendered(function() {
   var today = moment();
 
-  function Calendar(selector, events) {
+  function Calendar(selector) {
     this.el = document.querySelector(selector);
-    this.events = events;
+    this.events = [];
     this.current = moment().date(1);
     this.draw();
     /*var current = document.querySelector('.today');
@@ -52,9 +52,13 @@ Template.calendar.onRendered(function() {
 
   Calendar.prototype.drawMonth = function() {
     var self = this;
-    
+    console.log(self.current);
+    this.events = CalendarEvents.find({group: 'abcd'}).fetch();
+    console.log(this.events);
     this.events.forEach(function(ev) {
-     ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
+     ev.date = moment(ev.date);
+     ev.calendar = 'Events';
+     ev.color = 'orange';
      console.log(ev.date);
     });
     
@@ -89,21 +93,21 @@ Template.calendar.onRendered(function() {
 
     if(!dayOfWeek) { return; }
 
-    clone.subtract('days', dayOfWeek+1);
+    clone.subtract(dayOfWeek+1, 'days');
 
     for(var i = dayOfWeek; i > 0 ; i--) {
-      this.drawDay(clone.add('days', 1));
+      this.drawDay(clone.add(1, 'days'));
     }
   }
 
   Calendar.prototype.fowardFill = function() {
-    var clone = this.current.clone().add('months', 1).subtract('days', 1);
+    var clone = this.current.clone().add(1, 'months').subtract(1, 'days');
     var dayOfWeek = clone.day();
 
     if(dayOfWeek === 6) { return; }
 
     for(var i = dayOfWeek; i < 6 ; i++) {
-      this.drawDay(clone.add('days', 1));
+      this.drawDay(clone.add(1, 'days'));
     }
   }
 
@@ -112,7 +116,7 @@ Template.calendar.onRendered(function() {
 
     while(clone.month() === this.current.month()) {
       this.drawDay(clone);
-      clone.add('days', 1);
+      clone.add(1, 'days');
     }
   }
 
@@ -124,6 +128,7 @@ Template.calendar.onRendered(function() {
   }
 
   Calendar.prototype.drawDay = function(day) {
+  
     var self = this;
     this.getWeek(day);
 
@@ -331,7 +336,7 @@ Template.calendar.onRendered(function() {
 
     { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue' }];
   
-  var calendar = new Calendar('#calendar', data);
+  userCalendar = new Calendar('#calendar', data);
 
 });
 

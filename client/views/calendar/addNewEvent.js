@@ -11,7 +11,8 @@ Template.addNewEvent.events({
     var time = $("#time").val()
     var note = $("#note").val()
     console.log(date, time);
-    CalendarEvents.insert({date: new Date(date + ' ' + time), note: note, group: "abcd"});
+    CalendarEvents.insert({date: new Date(date), time: time, eventName: note, group: "abcd"});
+    userCalendar.drawMonth();
     IonModal.close('addNewEvent');
   }
 });
