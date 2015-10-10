@@ -83,7 +83,12 @@ function submitFunc(error, state){
     if (state === "signIn") {
       // Successfully logged in
       // ...
-      Router.go('/addkids');
+      console.log(Meteor.userId());
+      var user = Meteor.user();
+      var members = [{email: user.emails[0].address, invited: false}];
+      var groupId = Group.insert({groupOwnerId: Meteor.userId(), members: members});
+      Meteor.users.update({_id: Meteor.userId()}, {$push:{'groupId': groupId}});
+      Router.go('/children');
     }
     if (state === "signUp") {
       // Successfully registered
