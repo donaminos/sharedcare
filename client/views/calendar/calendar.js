@@ -6,13 +6,13 @@ Template.calendar.onRendered(function() {
     this.events = [];
     this.current = moment().date(1);
     this.draw();
-    /*var current = document.querySelector('.today');
+    var current = document.querySelector('.today');
     if(current) {
       var self = this;
       window.setTimeout(function() {
         self.openDay(current);
       }, 500);
-    }*/
+    }
   }
 
   Calendar.prototype.draw = function() {
@@ -53,12 +53,14 @@ Template.calendar.onRendered(function() {
   Calendar.prototype.drawMonth = function() {
     var self = this;
     console.log(self.current);
-    this.events = CalendarEvents.find({group: 'abcd'}).fetch();
+    this.events = CalendarEvents.find({group: 'abcd'}, {sort: { time: 1 }}).fetch();
     console.log(this.events);
     this.events.forEach(function(ev) {
      ev.date = moment(ev.date);
      ev.calendar = 'Events';
      ev.color = 'orange';
+     var ts = (ev.time).split(':');
+     ev.time = parseInt(ts[0]) > 11 ? (ts[0] - 12) + ':' + ts[1] + 'pm' : parseInt(ts[0]) + ':' + ts[1] + 'am';
      console.log(ev.date);
     });
     
@@ -187,7 +189,15 @@ Template.calendar.onRendered(function() {
     var day = this.current.clone().date(dayNumber);
     Session.set('selectedDate', day.toString());
     var currentOpened = document.querySelector('.details');
-
+    var todaysEvents = this.events.reduce(function(memo, ev) {
+      if(ev.date.isSame(day, 'day')) {
+        memo.push(ev);
+      }
+      return memo;
+    }, []);
+    var evLen = todaysEvents.length;
+    var eventsHeight = (evLen * 26) + 50;
+    eventsHeight = eventsHeight < 75 ? 75 : eventsHeight;
     //Check to see if there is an open detais box on the current row
     if(currentOpened && currentOpened.parentNode === el.parentNode) {
       details = currentOpened;
@@ -212,7 +222,7 @@ Template.calendar.onRendered(function() {
       }
 
       //Create the Details Container
-      details = createElement('div', 'details in');
+      details = createElement('div', 'details in', undefined, eventsHeight);
 
       //Create the arrow
       var arrow = createElement('div', 'arrow');
@@ -223,12 +233,6 @@ Template.calendar.onRendered(function() {
       el.parentNode.appendChild(details);
     }
 
-    var todaysEvents = this.events.reduce(function(memo, ev) {
-      if(ev.date.isSame(day, 'day')) {
-        memo.push(ev);
-      }
-      return memo;
-    }, []);
 
     this.renderEvents(todaysEvents, details);
 
@@ -238,12 +242,15 @@ Template.calendar.onRendered(function() {
   Calendar.prototype.renderEvents = function(events, ele) {
     //Remove any events in the current details element
     var currentWrapper = ele.querySelector('.events');
-    var wrapper = createElement('div', 'events in' + (currentWrapper ? ' new' : ''));
+    var evLen = events.length;
+    var eventsHeight = (evLen * 26) + 50;
+    eventsHeight = eventsHeight < 75 ? 75 : eventsHeight;
+    var wrapper = createElement('div', 'events in' + (currentWrapper ? ' new' : ''), undefined, eventsHeight);
 
     events.forEach(function(ev) {
       var div = createElement('div', 'event');
       var square = createElement('div', 'event-category ' + ev.color);
-      var span = createElement('span', '', ev.eventName);
+      var span = createElement('span', '', ev.time + ' ' + ev.eventName);
 
       div.appendChild(square);
       div.appendChild(span);
@@ -317,13 +324,16 @@ Template.calendar.onRendered(function() {
     this.draw();
   }
 
-  function createElement(tagName, className, innerText) {
+  function createElement(tagName, className, innerText, height) {
     var ele = document.createElement(tagName);
     if(className) {
       ele.className = className;
     }
     if(innerText) {
-      ele.innderText = ele.textContent = innerText;
+      ele.innerText = ele.textContent = innerText;
+    }
+    if(height) {
+      ele.style.height = height + 'px';
     }
     return ele;
   }

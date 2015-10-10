@@ -14,3 +14,6 @@ Meteor.publish('kid', function(_id) {
 Meteor.publish('groupCalendar', function(id) {
   return CalendarEvents.find({group: id});
 });
+Meteor.publish('expenses', function(id) {
+  return Expenses.find({group: id});
+});

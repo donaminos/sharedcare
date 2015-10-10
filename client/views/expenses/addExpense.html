@@ -1,0 +1,22 @@
+<template name="addExpense">
+  {{#ionModal title="Add Event"}}
+        {{#ionList class="my-class"}}
+          <label class="item item-input">
+            <span class="input-label">Amount</span>
+            <i class="icon placeholder-icon">$</i>
+            <input type="number" id="amount">
+          </label>
+          <label class="item item-input item-select">
+            <span class="input-label">Note</span>
+            <input type="text" id="note">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Date</span>
+            <input type="date" id="date">
+          </label>
+        {{/ionList}}
+          <div class="block-button">
+            <button class="button button-assertive button-block save">Save Details</button>
+          </div>
+  {{/ionModal}}
+</template>

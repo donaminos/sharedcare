@@ -9,14 +9,34 @@
 
 	{{#ionView}}
     	{{#ionContent class="expenseScreen"}}
-    	<div class="">
-        Shared Care image
-      </div>
       <div class="">
-      </div>
+    {{# if expenseList}}
+  {{#ionList class="my-expenses"}}
+    	<div class="item">
+    	 <div class="addNew"><i class="fa fa-plus"></i> Add expense</div>
+    	</div>
+    {{#each expenseList}}
+    {{# if datelabel}}
+    <div class="item item-divider">{{datelabel}}</div>
+    {{else}}
+    {{#ionItem}}
+        {{> singleExpenseItem}}
+    {{/ionItem}}
+    {{/if}}
+    {{/each}}
+  {{/ionList}}
+    {{else}}
+      <div class="noExpenses">No expenses have been entered yet<br><a href="#" class="addNew">Enter your first expense record</a></div>
+    {{/if}}
+    </div>
     	{{/ionContent}}
 
 
   {{/ionView}}
 
+</template>
+
+<template name="singleExpenseItem">
+      {{note}}
+      <span class="item-note">$ {{amount}}</span>
 </template>
