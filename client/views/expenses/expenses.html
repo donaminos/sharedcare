@@ -1,7 +1,11 @@
 <template name="expenses">
 	{{#contentFor "headerTitle"}}
-  	<h1 class="title">EXPENSES</h1>
+  	<h1 class="title"></h1>
 	{{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    {{> homeButton}}
+  {{/contentFor}}
 
 	{{#ionView}}
     	{{#ionContent class="expenseScreen"}}
