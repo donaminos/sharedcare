@@ -1,0 +1,28 @@
+<template name="_addKid">
+  {{#ionModal title="Add Kid"}}
+        {{#ionList class="addKidForm"}}
+          <label class="item item-input">
+            <span class="input-label">First Name</span>
+            <input type="text" id="firstName" value="">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Last Name</span>
+            <input type="text" id="lastName">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Birthday</span>
+            <input type="date" id="birthday">
+          </label>
+          <label class="item item-input item-select">
+            <span class="input-label">They're a</span>
+            <select id="gender">
+               <option value="boy">BOY</option>
+               <option value="girl">GIRL</option>
+            </select>
+          </label>
+        {{/ionList}}
+          <div class="block-button">
+            <button class="button button-assertive button-block save">Add Kid</button>
+          </div>
+  {{/ionModal}}
+</template>
