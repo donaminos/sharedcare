@@ -407,3 +407,24 @@ body {
 img {
   max-width: 100%;
 }
+.item.add-item {
+  background-color: #efefef;
+  text-align: center;
+  color: #999999;
+  padding: 8px;
+}
+.item.card-footer {
+  padding: 5px 16px;
+  font-size: 12px;
+  color: #666666;
+  a {
+    text-decoration: none;
+    color: #666666;
+  }
+  .item-note {
+    font-size: 12px;
+  }
+}
+.item p.date-display {
+  font-size: 11px;
+}

@@ -1,0 +1,15 @@
+<template name="viewPost">
+  {{#ionModal}}
+    <div class="content padding">
+      {{postText}}
+    </div>
+      {{#ionList class="my-post"}}
+        {{#each comments}}
+          <div class="item">{{commentText}}</div>
+        {{/each}}
+      {{/ionList}}
+<div class="bar bar-footer bar-balanced">
+  <div class="title">Footer</div>
+</div>
+  {{/ionModal}}
+</template>

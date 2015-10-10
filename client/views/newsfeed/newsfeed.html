@@ -9,18 +9,18 @@
 
 	{{#ionView}}
     	{{#ionContent class="newsScreen"}}
-    	<div class="">
-        Shared Care image
-      </div>
       <div class="">
-        {{#ionList class="news"}}
-          {{#each newslist}}
-          {{#ionItem}}
-              {{> singleNewsItem}}
-          {{/ionItem}}
-          {{/each}}
-        {{/ionList}}
-      </div>
+    	<div class="item add-item addNew">
+    	 <i class="fa fa-plus-circle fa-2x"></i>
+    	</div>
+    {{# if newsList}}
+    {{#each newsList}}
+        {{> singleNewsItem}}
+    {{/each}}
+    {{else}}
+      <div class="noNews">They say no news is good news, but it just looks a bit empty!<br><a href="#" class="addNew">Enter your first post</a></div>
+    {{/if}}
+    </div>
     	{{/ionContent}}
 
 
@@ -29,8 +29,27 @@
 </template>
 
 <template name="singleNewsItem">
-      <div class="item-icon-left" href="#">
-      {{> ionIcon icon="minus-circled"}}
-      {{category}}
-      </div>
+<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="avatar.jpg">
+    <h3>David Baxter</h3>
+    <p class="date-display">{{dateDisplay}}</p>
+  </div>
+  <a class="item " href="#">
+    <p>{{postText}}</p>  
+  </a>
+  {{#if image}}
+  <div class="item item-image">
+    <img src="cover.jpg">
+  </div>
+  {{/if}}
+  <a class="item card-footer" href="#">
+    <a href="#" class="comment"><i class="fa fa-comment"></i> {{commentCount}}</a>
+    <span class="item-note edit-post">
+      Edit post
+    </span>
+  </a>
+
+</div>
 </template>

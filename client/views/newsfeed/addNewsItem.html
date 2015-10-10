@@ -1,0 +1,14 @@
+<template name="addNewsItem">
+  {{#ionModal title="Add Post"}}
+        {{#ionList class="my-class"}}
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+      <textarea type="text" rows="4" placeholder="post" name="postText" id="postText" style="background-color: transparent;"></textarea>
+    </label>
+<button class="button button-clear button-small picture"><i class="fa fa-camera fa-2x"></i></button>    </div>
+        {{/ionList}}
+          <div class="block-button">
+            <button class="button button-assertive button-block save">Save Details</button>
+          </div>
+  {{/ionModal}}
+</template>

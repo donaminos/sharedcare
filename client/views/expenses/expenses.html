@@ -10,11 +10,11 @@
 	{{#ionView}}
     	{{#ionContent class="expenseScreen"}}
       <div class="">
+    	<div class="item add-item addNew">
+    	 <i class="fa fa-plus-circle fa-2x"></i>
+    	</div>
     {{# if expenseList}}
   {{#ionList class="my-expenses"}}
-    	<div class="item">
-    	 <div class="addNew"><i class="fa fa-plus"></i> Add expense</div>
-    	</div>
     {{#each expenseList}}
     {{# if datelabel}}
     <div class="item item-divider">{{datelabel}}</div>
