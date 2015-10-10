@@ -21,9 +21,7 @@ fourseven:scss@2.0.0
 meteoric:ionic-sass
 meteoric:ionicons-sass
 meteoric:ionic
-<<<<<<< HEAD
 fortawesome:fontawesome
-=======
 meteoric:autoform-ionic
 useraccounts:ionic
 accounts-password
@@ -40,4 +38,3 @@ babrahams:temple
 constellation:tiny
 constellation:position
 ground:db
->>>>>>> user-accounts
