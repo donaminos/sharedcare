@@ -8,7 +8,7 @@ Template._addGroupMember.events({
         name: name,
         relationship: relationship,
         email: email,
-        invitationStatus: 'sent'
+        invitationStatus: 'invited'
     };
     var user = Meteor.user();
     console.log('newMember', newMember);

@@ -28,6 +28,9 @@ Template.managegroup.helpers({
       case 'invited':
         status = 'Invited';
         break;
+      case 'connected':
+        status = 'Connected';
+        break;
       default:
         break;
     }
