@@ -9,13 +9,15 @@
 
 	{{#ionView}}
     	{{#ionContent class="groupScreen"}}
+      {{#each data}}
+      {{#if isGroupAdmin groupOwnerId}}
     	<div class="">
         <button class="button button-clear" data-ion-modal="_addGroupMember">{{> ionIcon icon="ios-plus-empty"}} Add New</button>
       </div>
+      {{/if}}
       <br/>
       <div class="">
             {{#ionList}}
-              {{#each data}}
                 {{#each members}}
                   {{#ionItem route="editKid" buttonRight=true avatar=true class="item-icon-right"}}
                     <img src="{{avatarUrl}}">
@@ -23,9 +25,9 @@
                     <p>{{checkInvitationStatus invitationStatus}}</p>
                   {{/ionItem}}
                 {{/each}}
-              {{/each}}
             {{/ionList}}
         </div>
+        {{/each}}
     	{{/ionContent}}
 
 

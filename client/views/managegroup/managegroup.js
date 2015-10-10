@@ -36,5 +36,9 @@ Template.managegroup.helpers({
     }
     console.log(status);
     return status;
+  },
+  isGroupAdmin: function(groupOwnerId) {
+    console.log(groupOwnerId);
+    return groupOwnerId == Meteor.userId() ? true : false;
   }
 });
