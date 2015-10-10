@@ -18,7 +18,7 @@ Template.home.helpers({
             label: 'Expense Recorder'
         }, {
             icon: 'fa-users',
-            path: 'managegroups',
+            path: 'managegroup',
             label: 'Group Connections & Information'
         }]
     }

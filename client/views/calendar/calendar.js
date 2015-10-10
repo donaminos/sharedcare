@@ -301,13 +301,13 @@ Template.calendar.onRendered(function() {
   }
 
   Calendar.prototype.nextMonth = function() {
-    this.current.add('months', 1);
+    this.current.add(1, 'months');
     this.next = true;
     this.draw();
   }
 
   Calendar.prototype.prevMonth = function() {
-    this.current.subtract('months', 1);
+    this.current.subtract(1, 'months');
     this.next = false;
     this.draw();
   }
