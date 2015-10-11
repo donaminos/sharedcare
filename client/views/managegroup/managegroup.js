@@ -16,7 +16,8 @@ Template.managegroup.rendered = function () {
 
 Template.managegroup.helpers({
   data: function () {
-    return Group.find();
+    var user = Meteor.user();
+    return Group.find({_id: user.profile.groupId[0]});
   },
   checkInvitationStatus: function (s) {
     console.log(s);
