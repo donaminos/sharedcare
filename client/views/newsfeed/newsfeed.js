@@ -21,7 +21,7 @@ Template.singleNewsItem.helpers({
     commentCount: function() {
         var cl = this.comments.length;
         if (cl === 1) return '1 Comment';
-        if (cl > 1) return cl + 'Comments';
+        if (cl > 1) return cl + ' Comments';
         return 'Comment';
     },
     dateDisplay: function() {

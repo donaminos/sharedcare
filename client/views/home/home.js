@@ -8,10 +8,10 @@ Template.home.helpers({
             icon: 'fa-calendar',
             path: 'calendar',
             label: 'Calendar'
-        }, {
+/*        }, {
             icon: 'fa-heart-o',
             path: 'carearrangements',
-            label: 'Care Arrangements'
+            label: 'Care Arrangements'*/
         }, {
             icon: 'fa-dollar',
             path: 'expenses',

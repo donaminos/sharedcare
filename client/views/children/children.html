@@ -1,6 +1,6 @@
 <template name="children">
   {{#contentFor "headerTitle"}}
-    <h1 class="title">KIDS</h1>
+  	<h1 class="title"><img src="/images/shared_care_logo.png"></h1>
   {{/contentFor}}
 
   {{#contentFor "headerButtonRight"}}
@@ -9,6 +9,10 @@
 
   {{#ionView}}
     {{#ionContent}}
+        <img src="/images/image_register2.png" style="margin-bottom: -5px;">
+    	<div class="item add-item addNew">
+    	 <i class="fa fa-plus-circle fa-2x"></i><br><span class="addText">Add Child</span>
+    	</div>
       {{#ionList}}
         {{#each children}}
           {{#ionItem route="editKid" buttonRight=true avatar=true class="item-icon-right"}}
@@ -21,4 +25,7 @@
     {{/ionContent}}
   {{/ionView}}
 
+{{#ionFooterBar}}
+      <div style="text-align:center; width: 100%;"><a href="/" class="button button-clear">Continue</a></div>
+{{/ionFooterBar}}
 </template>

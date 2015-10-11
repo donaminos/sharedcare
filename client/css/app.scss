@@ -1,5 +1,6 @@
 $loading-font-size: 22px;
 
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700');
 @import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/_ionic';
 @import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/_ionicons';
 
@@ -400,15 +401,15 @@ $loading-font-size: 22px;
   to { opacity: 0; padding: 0px; height: 0px; }
 }
 
-body {
-  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+body, .ionic-body {
+  font-family: 'Open Sans', 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 img {
   max-width: 100%;
 }
 .item.add-item {
-  background-color: #efefef;
+  background-color: #fbfbfb;
   text-align: center;
   color: #999999;
   padding: 8px;
@@ -427,4 +428,36 @@ img {
 }
 .item p.date-display {
   font-size: 11px;
+}
+.item-icon-left {
+  padding-left: 0px;
+  font-size: 14px;
+  color: #878787;
+  span.fa-stack {
+    margin-right: 10px;
+  }
+    .fa-stack-2x {
+      color: #4e7276;   
+    }
+    .fa-stack-1x {
+      font-size:: 16px;   
+    }
+}
+.homeScreen .item {
+  padding: 10px;
+}
+.bar.bar-header.bar-light {
+  background-color: #4e7276;
+  background-image: url('/images/header_background.jpg');
+  background-size: cover; 
+  button {
+    color: white;
+  }
+  img {
+    height: 25px;
+    margin-top: 10px;
+  }
+}
+.content {
+  background-color: #f2f2f2;
 }
