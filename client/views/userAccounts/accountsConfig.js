@@ -112,13 +112,14 @@ function submitFunc(error, state){
         } else {
           var members = [{email: user.emails[0].address, name: user.profile.name, relationship: 'admin', invitationStatus: 'created'}];
           var groupId = Group.insert({groupOwnerId: Meteor.userId(), members: members});
+          console.log(groupId);
           Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': groupId}});
-          var children = Children.find({groupId: groupId}).count();
+          Meteor.call('checkChildrenExists', groupId, function (err, children) {
           if (children > 0)
             Router.go('/');
           else
             Router.go('/children');
-
+          })
         }
       });
     }
