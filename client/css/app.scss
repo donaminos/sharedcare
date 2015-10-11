@@ -16,7 +16,7 @@ $loading-font-size: 22px;
  color: rgba(255, 255, 255, 1);
  margin: 0;
  padding: 0;
- background: #4A4A4A;
+ background: rgba(79, 114, 118, 1);
  -webkit-touch-callout: none;
  -webkit-user-select: none;
  -khtml-user-select: none;
@@ -33,10 +33,12 @@ $loading-font-size: 22px;
 
 .header {
   height: 50px;
-  width: 420px;
-  background: rgba(66, 66, 66, 1);
+  width: 100%;
+  background: rgba(79, 114, 118, 1);
   text-align: center;
   position:relative;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 5px;
   z-index: 100;
 }
 
@@ -112,17 +114,17 @@ $loading-font-size: 22px;
 }
 
 .week {
- background: #4A4A4A;
+ background: rgba(79, 114, 118, 1);
 }
 
 .day {
   display: inline-block;
-  width: 60px;
-  padding: 10px;
+  width: 14%;
+  padding: 0px 10px;
   text-align: center;
   vertical-align: top;
   cursor: pointer;
-  background: #4A4A4A;
+  background: rgba(79, 114, 118, 1);
   position: relative;
   z-index: 100;
 }
@@ -176,7 +178,8 @@ $loading-font-size: 22px;
 
 .details {
   position: relative;
-  width: 420px;
+  width: 97%;
+  margin: 0px 5px;
   height: 75px;
   background: rgba(164, 164, 164, 1);
   margin-top: 5px;
@@ -460,4 +463,17 @@ img {
 }
 .content {
   background-color: #f2f2f2;
+}
+
+.modal {
+  .bar.bar-header {
+    background-color: #4e7276;
+    color: #ffffff;
+  h2.title, button {
+    color: #ffffff;
+  }
+  }
+}
+.card {
+  margin: 10px 10px;
 }

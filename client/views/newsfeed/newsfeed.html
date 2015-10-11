@@ -36,9 +36,11 @@
     <h3>David Baxter</h3>
     <p class="date-display">{{dateDisplay}}</p>
   </div>
+  {{#if postText}}
   <a class="item " href="#">
     <p>{{postText}}</p>
   </a>
+  {{/if}}
   {{#if attachment}}
   <div class="item item-image">
     <img src="{{attachment}}">
@@ -46,9 +48,9 @@
   {{/if}}
   <a class="item card-footer" href="#">
     <a href="#" class="comment"><i class="fa fa-comment"></i> {{commentCount}}</a>
-    <span class="item-note edit-post">
+    <!-- span class="item-note edit-post">
       Edit post
-    </span>
+    </span -->
   </a>
 
 </div>

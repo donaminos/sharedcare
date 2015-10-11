@@ -1,5 +1,6 @@
 <template name="addExpense">
   {{#ionModal title="Add Expense"}}
+    <div class="padding">
         {{#ionList class="my-class"}}
           <label class="item item-input">
             <span class="input-label">Amount</span>
@@ -15,7 +16,7 @@
             <input type="date" id="date">
           </label>
           <label class="item item-input">
-            <span class="input-label">Attachement</span>
+            <span class="input-label">Picture of receipt</span>
           <button class="button button-clear button-small picture"><i class="fa fa-camera fa-2x"></i></button>
           </label>
         {{/ionList}}
@@ -25,7 +26,8 @@
           </div>
         {{/if}}
           <div class="block-button">
-            <button class="button button-assertive button-block save">Save Details</button>
+            <button class="button button-light button-block save">Save Expense</button>
           </div>
+    </div>
   {{/ionModal}}
 </template>

@@ -1,7 +1,16 @@
 <template name="viewPost">
-  {{#ionModal}}
+  {{#ionModal title="Comments"}}
     <div class="content padding">
-      {{postText}}
+  {{#if postText}}
+  <a class="item " href="#">
+    <p>{{postText}}</p>
+  </a>
+  {{/if}}
+  {{#if attachment}}
+  <div class="item item-image">
+    <img src="{{attachment}}">
+  </div>
+  {{/if}}
     </div>
       {{#ionList class="my-post"}}
         {{#each comments}}
