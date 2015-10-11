@@ -1,0 +1,11 @@
+<template name="showAttachment">
+  {{#ionModal title=note}}
+        {{#ionList class="showAttachmentForm"}}
+        {{#if attachment}}
+          <div>
+            <img src={{attachment}} />
+          </div>
+        {{/if}}
+        {{/ionList}}
+  {{/ionModal}}
+</template>

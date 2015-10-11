@@ -5,8 +5,14 @@
           <label class="item-input-wrapper">
       <textarea type="text" rows="4" placeholder="post" name="postText" id="postText" style="background-color: transparent;"></textarea>
     </label>
-<button class="button button-clear button-small picture"><i class="fa fa-camera fa-2x"></i></button>    </div>
+<button class="button button-clear button-small picture"><i class="fa fa-camera fa-2x"></i></button>
+       </div>
         {{/ionList}}
+        {{#if photo}}
+          <div>
+            <img src={{photo}} />
+          </div>
+        {{/if}}
           <div class="block-button">
             <button class="button button-assertive button-block save">Save Details</button>
           </div>
