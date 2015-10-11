@@ -22,4 +22,11 @@ Template.home.helpers({
             label: 'Group Connections & Information'
         }]
     }
-})
+});
+
+Template.home.rendered = function () {
+    var user = Meteor.user();
+    console.log(user.profile);
+    if (!user.profile.avatarUrl)
+        IonModal.open('profilePic');
+}

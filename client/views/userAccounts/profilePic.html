@@ -1,0 +1,18 @@
+<template name="profilePic">
+  {{#ionModal title="Profile Picture"}}
+        {{#ionList class="my-class"}}
+        <div class="item item-input-inset">
+
+		<button class="button button-clear button-large picture"><i class="fa fa-camera fa-2x"></i></button>
+       </div>
+        {{/ionList}}
+        {{#if photo}}
+          <div>
+            <img src={{photo}} />
+          </div>
+        {{/if}}
+          <div class="block-button">
+            <button class="button button-balanced button-block save">Save Picture</button>
+          </div>
+  {{/ionModal}}
+</template>
