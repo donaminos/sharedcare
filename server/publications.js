@@ -24,6 +24,10 @@ Meteor.publish('groupMembers', function(id) {
   return Group.find({groupId: id});
 });
 
+Meteor.publish('groupUsers', function(id) {
+  return Meteor.users.find({'profile.groupId': id});
+});
+
 Meteor.publish('acceptInvitation', function(id) {
   return Children.find({groupId: id});
 });

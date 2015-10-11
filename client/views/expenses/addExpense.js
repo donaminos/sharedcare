@@ -6,14 +6,16 @@ Template.addExpense.events({
   'click .save': function(e) {
     e.preventDefault();
     var user = Meteor.user();
-    var date = $("#date").val()
+    var date = $("#date").val();
     var amount = parseFloat($("#amount").val());
-    var note = $("#note").val()
+    var note = $("#note").val();
+    var child_name = $("#child_name").val();
     console.log(date, amount, note);
     Expenses.insert({
     	date: new Date(date),
     	group: user.profile.groupId[0],
     	note: note,
+    	child_name: child_name,
     	amount: amount,
     	userId: Meteor.userId(),
     	createdAt: new Date(),

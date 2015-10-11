@@ -35,13 +35,22 @@
 </template>
 
 <template name="singleExpenseItem">
-    {{#ionItem}}
-      <div class="expenseItem">
-      {{note}}
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img src="{{avatarUrlWithUserId userId}}">
+        <h3>{{userName userId}}</h3>
+      </div>
+      <div class="item">
+      {{note}} for {{child_name}}
       <span class="item-note">$ {{amount}}</span>
       </div>
-      {{#if isAttachment attachment}}
+      <a class="item card-footer" href="#">
+        <span class="item-note edit-post">
+          {{#if isAttachment attachment}}
           <button class="item-note button button-clear button-small viewAttachment"><i class="fa fa-camera fa-2x"></i></button>
-      {{/if}}
-      {{/ionItem}}
+          {{/if}}
+        </span>
+      </a>
+    </div>
 </template>
