@@ -110,7 +110,7 @@ function submitFunc(error, state){
           Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': exists[0]._id}});
           Router.go('/acceptInvitation');
         } else {
-          var members = [{email: user.emails[0].address, invitationStatus: 'created'}];
+          var members = [{email: user.emails[0].address, name: user.profile.name, relationship: 'admin', invitationStatus: 'created'}];
           var groupId = Group.insert({groupOwnerId: Meteor.userId(), members: members});
           Meteor.users.update({_id: Meteor.userId()}, {$push:{'profile.groupId': groupId}});
           var children = Children.find({groupId: groupId}).count();
