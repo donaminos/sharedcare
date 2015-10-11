@@ -12,7 +12,9 @@
       {{#each data}}
       {{#if isGroupAdmin groupOwnerId}}
     	<div class="">
-        <button class="button button-clear" data-ion-modal="_addGroupMember">{{> ionIcon icon="ios-plus-empty"}} Add New</button>
+      <div class="item add-item addNew">
+       <i class="fa fa-plus-circle fa-2x"></i>
+      </div>
       </div>
       {{/if}}
       <br/>

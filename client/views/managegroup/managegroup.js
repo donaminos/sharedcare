@@ -42,3 +42,10 @@ Template.managegroup.helpers({
     return groupOwnerId == Meteor.userId() ? true : false;
   }
 });
+
+Template.managegroup.events({
+    'click .addNew': function(e) {
+        e.preventDefault();
+        IonModal.open('_addGroupMember');
+    },
+})
