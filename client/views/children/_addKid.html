@@ -1,5 +1,6 @@
 <template name="_addKid">
   {{#ionModal title="Add Child"}}
+    <div class="padding">
         {{#ionList class="addKidForm"}}
           <label class="item item-input">
             <span class="input-label">Name</span>
@@ -22,7 +23,8 @@
           </label>
         {{/ionList}}
           <div class="block-button">
-            <button class="button button-assertive button-block save">Add Child</button>
+            <button class="button button-light button-block save">Add Child</button>
           </div>
+    </div>
   {{/ionModal}}
 </template>

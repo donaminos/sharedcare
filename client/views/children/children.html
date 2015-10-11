@@ -3,14 +3,11 @@
   	<h1 class="title"><img src="/images/shared_care_logo.png"></h1>
   {{/contentFor}}
 
-  {{#contentFor "headerButtonRight"}}
-    <button class="button button-clear" data-ion-modal="_addKid">{{> ionIcon icon="ios-plus-empty"}}</button>
-  {{/contentFor}}
 
   {{#ionView}}
     {{#ionContent}}
         <img src="/images/image_register2.png" style="margin-bottom: -5px;">
-    	<div class="item add-item addNew">
+    	<div class="item add-item addNew" data-ion-modal="_addKid">
     	 <i class="fa fa-plus-circle fa-2x"></i><br><span class="addText">Add Child</span>
     	</div>
       {{#ionList}}
