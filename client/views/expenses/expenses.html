@@ -40,5 +40,8 @@
       {{note}}
       <span class="item-note">$ {{amount}}</span>
       </div>
-    {{/ionItem}}
+      {{#if isAttachment attachment}}
+          <button class="item-note button button-clear button-small viewAttachment"><i class="fa fa-camera fa-2x"></i></button>
+      {{/if}}
+      {{/ionItem}}
 </template>

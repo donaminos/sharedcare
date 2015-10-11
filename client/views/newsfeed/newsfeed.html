@@ -37,11 +37,11 @@
     <p class="date-display">{{dateDisplay}}</p>
   </div>
   <a class="item " href="#">
-    <p>{{postText}}</p>  
+    <p>{{postText}}</p>
   </a>
-  {{#if image}}
+  {{#if attachment}}
   <div class="item item-image">
-    <img src="cover.jpg">
+    <img src="{{attachment}}">
   </div>
   {{/if}}
   <a class="item card-footer" href="#">

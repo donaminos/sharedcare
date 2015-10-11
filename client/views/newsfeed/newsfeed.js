@@ -6,8 +6,9 @@ Template.newsfeed.events({
 });
 Template.newsfeed.helpers({
     newsList: function() {
+        var user = Meteor.user();
         var news = News.find({
-            group: 'abcd'
+            group: user.profile.groupId[0]
         }, {
             sort: {
                 createdAt: -1
